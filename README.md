@@ -36,6 +36,6 @@ La API simula el backend de un sistema de carrito de compras pensado para ser co
 
 ---
 
-## Endpoints disponibles
+
 
 
