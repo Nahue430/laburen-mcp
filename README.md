@@ -36,6 +36,7 @@ La API simula el backend de un sistema de carrito de compras pensado para ser co
 
 ---
 
-
+## Endpoints
+- Los endpoints disponibles y su lógica se encuentran documentados directamente en el archivo src/worker.js
 
 
