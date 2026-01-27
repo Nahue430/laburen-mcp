@@ -19,18 +19,21 @@ CREATE TABLE products (
 
 --CARTS
 CREATE TABLE carts (
-  id VARCHAR(36) PRIMARY KEY NOT NULL,
-  created_at DATE NOT NULL,
-  updated_at DATE NOT NULL
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  session_id TEXT NOT NULL UNIQUE,
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL
 )
 
 --CART_ITEMS
 CREATE TABLE cart_items (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  cart_id VARCHAR(36) NOT NULL,
-  product_id INT NOT NULL,
-  quantity INT NOT NULL,
+  cart_id INTEGER NOT NULL,
+  product_id INTEGER NOT NULL,
+  quantity INTEGER NOT NULL,
 
-  FOREIGN KEY (cart_id) REFERENCES carts(id),
-  FOREIGN KEY (product_id) REFERENCES products(id)
+  FOREIGN KEY (cart_id) REFERENCES carts(id) ON DELETE CASCADE,
+  FOREIGN KEY (product_id) REFERENCES products(id),
+
+  UNIQUE (cart_id, product_id)
 )
